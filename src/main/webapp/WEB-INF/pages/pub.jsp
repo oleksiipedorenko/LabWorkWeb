@@ -18,6 +18,7 @@
     <jsp:useBean id="contactInformation" scope="request" type="ua.skillsup.practice.rest.model.ContactInformation"/>
     <jsp:useBean id="barStatus" scope="request" type="ua.skillsup.practice.rest.model.BarStatus"/>
 </head>
+
 <body>
 <div class="container-fluid">
     <div class="page-header text-centred">
@@ -152,9 +153,14 @@
             </div>
         </div>
     </div>
+
 </div>
+
+
 <script type="text/javascript" src="webjars/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/resources/core/my-script.js"></script>
+
+
 </body>
 </html>
