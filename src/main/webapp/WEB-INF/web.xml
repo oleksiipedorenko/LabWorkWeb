@@ -16,6 +16,16 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+	<filter>
+		<filter-name>authFIlter</filter-name>
+		<filter-class>ua.skillsup.practice.rest.filter.AuthorisationFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>authFIlter</filter-name>
+		<url-pattern>/pub</url-pattern>
+	</filter-mapping>
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
