@@ -15,6 +15,9 @@ public class MainController {
 
 	@RequestMapping(value = "/pub", method = RequestMethod.GET)
     public String getPub(Model model) {
+		model.addAttribute("beerKinds", bar.getBeerKinds());
+		model.addAttribute("contactInformation", bar.getContactInformation());
+		model.addAttribute("barStatus", bar.getBarStatus());
 		return "pub";
     }
 
