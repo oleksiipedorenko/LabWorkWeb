@@ -127,7 +127,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" id="close-modal" data-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-primary" id="refill-bar">Request</button>
                             </div>
                         </div>
