@@ -12,6 +12,11 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel="stylesheet" href="/resources/core/my-style.css">
+
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <jsp:useBean id="beerKinds" scope="request" type="java.util.List"/>
+    <jsp:useBean id="barStatus" scope="request" type="ua.skillsup.practice.rest.model.BarStatus"/>
+    <jsp:useBean id="contactInfo" scope="request" type="ua.skillsup.practice.rest.model.ContactInformation"/>
 </head>
 <body>
 <div class="container-fluid">
@@ -35,7 +40,11 @@
                 <div class="form-inline">
                     <div class="form-group">
                         <label for="kindSelect">Select kind</label>
-                        <select class="form-control" id="kindSelect"></select>
+                        <select class="form-control" id="kindSelect">
+                            <c:forEach items="${beerKinds}" var="kind">
+                                <option>${kind}</option>
+                            </c:forEach>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="count">Select glasses count</label>
@@ -63,6 +72,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td>Dark</td>
+                            <td id="darkAmount">${barStatus.glassesOfDark}</td>
+                        </tr>
+                        <tr>
+                            <td>Light</td>
+                            <td id="lightAmount">${barStatus.glassesOfLight}</td>
+                        </tr>
+                        <tr>
+                            <td>Ale</td>
+                            <td id="aleAmount">${barStatus.glassesOfAle}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -123,10 +144,10 @@
                 <div class="panel-heading">You can find us following next information</div>
 
                 <ul class="list-group">
-                    <li class="list-group-item">Country :</li>
-                    <li class="list-group-item">City : </li>
-                    <li class="list-group-item">Address: </li>
-                    <li class="list-group-item">Phone: </li>
+                    <li class="list-group-item">Country : ${contactInfo.country}</li>
+                    <li class="list-group-item">City : ${contactInfo.city}</li>
+                    <li class="list-group-item">Address: ${contactInfo.address}</li>
+                    <li class="list-group-item">Phone: ${contactInfo.phoneNumber}</li>
                 </ul>
             </div>
         </div>

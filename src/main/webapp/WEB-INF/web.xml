@@ -25,4 +25,14 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+	<filter>
+		<filter-name>authFilter</filter-name>
+		<filter-class>ua.skillsup.practice.rest.filter.AuthFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>authFilter</filter-name>
+		<url-pattern>/pub</url-pattern>
+	</filter-mapping>
+
 </web-app>
