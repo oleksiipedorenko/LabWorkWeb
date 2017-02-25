@@ -21,9 +21,9 @@
     <div class="row">
         <div class="col-lg-offset-1 col-lg-10">
             <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#" id="order-tab">Make an order</a></li>
-                <li role="presentation"><a href="#" id="status-tab">Current beer status</a></li>
-                <li role="presentation"><a href="#" id="contact-tab">Contact information</a></li>
+                <li role="presentation" class="active"><a id="order-tab">Make an order</a></li>
+                <li role="presentation"><a id="status-tab">Current beer status</a></li>
+                <li role="presentation"><a id="contact-tab">Contact information</a></li>
             </ul>
         </div>
     </div>
