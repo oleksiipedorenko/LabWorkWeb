@@ -14,12 +14,19 @@ import java.util.List;
 @Service
 public class BarService {
 
+	@Value("${contact.country}")
 	private String country;
+	@Value("${contact.city}")
 	private String city;
+	@Value("${contact.number}")
 	private String phoneNumber;
+	@Value("${contact.address}")
 	private String address;
+	@Value("${bar.init.glasses}")
 	private int darkBeerGlasses;
+	@Value("${bar.init.glasses}")
 	private int lightBeerGlasses;
+	@Value("${bar.init.glasses}")
 	private int aleGlasses;
 
 	public List<String> getBeerKinds() {

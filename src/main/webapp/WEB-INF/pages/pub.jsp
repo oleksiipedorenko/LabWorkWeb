@@ -12,6 +12,13 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel="stylesheet" href="/resources/core/my-style.css">
+
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <jsp:useBean id="beerKinds" scope="request" type="java.util.List" />
+    <jsp:useBean id="contactInformation" scope="request"
+                 type="ua.skillsup.practice.rest.model.ContactInformation" />
+    <jsp:useBean id="barStatus" scope="request"
+                 type="ua.skillsup.practice.rest.model.BarStatus" />
 </head>
 <body>
 <div class="container-fluid">
@@ -21,21 +28,25 @@
     <div class="row">
         <div class="col-lg-offset-1 col-lg-10">
             <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#" id="order-tab">Make an order</a></li>
-                <li role="presentation"><a href="#" id="status-tab">Current beer status</a></li>
-                <li role="presentation"><a href="#" id="contact-tab">Contact information</a></li>
+                <li role="presentation" class="content-tab active"><a href="#" id="order-tab">Make an order</a></li>
+                <li role="presentation" class="content-tab"><a href="#" id="status-tab">Current beer status</a></li>
+                <li role="presentation" class="content-tab"><a href="#" id="contact-tab">Contact information</a></li>
             </ul>
         </div>
     </div>
 
-    <div class="top-buffer tab-panel" id="order-panel">
+    <div class="top-buffer tab-panel content-panel" id="order-panel">
 
         <div class="row top-buffer">
             <div class="col-lg-offset-3 col-lg-6">
                 <div class="form-inline">
                     <div class="form-group">
                         <label for="kindSelect">Select kind</label>
-                        <select class="form-control" id="kindSelect"></select>
+                        <select class="form-control" id="kindSelect">
+                            <c:forEach items="${beerKinds}" var="kind">
+                                <option>${kind}</option>
+                            </c:forEach>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="count">Select glasses count</label>
@@ -52,7 +63,7 @@
         </div>
 
     </div>
-    <div class="top-buffer tab-panel hidden" id="status-panel">
+    <div class="top-buffer tab-panel content-panel hidden" id="status-panel">
         <div class="row top-buffer">
             <div class="col-lg-offset-4 col-lg-4">
                 <table class="table table-hover">
@@ -63,6 +74,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td>Dark</td>
+                            <td>${barStatus.glassesOfDark}</td>
+                        </tr>
+                        <tr>
+                            <td>Light</td>
+                            <td>${barStatus.glassesOfLight}</td>
+                        </tr>
+                        <tr>
+                            <td>Ale</td>
+                            <td>${barStatus.glassesOfAle}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -116,17 +139,17 @@
             </div>
         </div>
     </div>
-    <div class="top-buffer tab-panel hidden" id="contact-panel">
+    <div class="top-buffer tab-panel content-panel hidden" id="contact-panel">
         <div class="row top-buffer">
             <div class="panel panel-default col-lg-offset-3 col-lg-6">
 
                 <div class="panel-heading">You can find us following next information</div>
 
                 <ul class="list-group">
-                    <li class="list-group-item">Country :</li>
-                    <li class="list-group-item">City : </li>
-                    <li class="list-group-item">Address: </li>
-                    <li class="list-group-item">Phone: </li>
+                    <li class="list-group-item">Country : ${contactInformation.country}</li>
+                    <li class="list-group-item">City : ${contactInformation.city}</li>
+                    <li class="list-group-item">Address: ${contactInformation.address}</li>
+                    <li class="list-group-item">Phone: ${contactInformation.phoneNumber}</li>
                 </ul>
             </div>
         </div>
